@@ -41,18 +41,15 @@
       }
     },
     methods: {
-
+      // 提交数据
       onsubmit () {
         console.log(1);
-        axios.post('http://adm.leyoule1.com/api/login',
-          this.User,
-          {
-            headers: {
-              "authKey": 'longwords'
-            }
-          }).then((res) => {
+        axios.post('http://adm.leyoule1.com/api/authenticate',
+          this.User
+        ).then((res) => {
+          console.log(res.status);
           console.log(res.data)
-        })
+        }).catch((err) => console.log(err));
       }
     }
   }
